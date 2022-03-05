@@ -32,7 +32,12 @@ case 'a':
 case 'e':
 case 'i':
 case 'o':
-case 'u':      cout << " is vowel ";    break;
+case 'u':   
+case 'A':
+case 'E':
+case 'I':
+case 'O':
+case 'U':      cout << " is vowel ";    break;
 
 
 default:       cout << " is consonant"; 
