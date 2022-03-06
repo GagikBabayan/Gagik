@@ -24,26 +24,30 @@ char  letter;
 cout << "Input letter: ";
 cin  >> letter;
 
-cout << letter;
-
-switch (letter) {
-
-case 'a':
-case 'e':
-case 'i':
-case 'o':
-case 'u':   
-case 'A':
-case 'E':
-case 'I':
-case 'O':
-case 'U':      cout << " is vowel ";    break;
 
 
-default:       cout << " is consonant"; 
+if(( letter >= 'a'  && letter <= 'z') || (letter >= 'A' && letter <= 'Z')){
+    switch (letter) {
 
-}
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':   
+    case 'A':
+    case 'E':
+    case 'I':
+    case 'O':
+    case 'U':      cout <<  letter << " is vowel ";    break;
 
+
+    default:       cout <<  letter << " is consonant"; 
+
+ }
+
+} 
+
+ else  cout << "Invalid input! Please input  letter  a-z or A-Z";
 
 cout << endl;
 
