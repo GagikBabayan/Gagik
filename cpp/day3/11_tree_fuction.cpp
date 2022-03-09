@@ -3,7 +3,7 @@
  using namespace std;
  
  
-int tree(int i){
+void tree1(int i){
 
  int j = 0;
  
@@ -26,8 +26,10 @@ int tree(int i){
  }
  
  
-  cout << endl << endl ;
-  j = 1;
+}
+  
+void tree2(int i){
+ int j = 1;
  
  
  
@@ -53,9 +55,12 @@ int tree(int i){
    j++;
  
  }
+
+
+}
  
- cout << endl << endl ;
- j = 1;
+ void tree3 (int i) {
+ int  j = 1;
  
 
  while ( j <= i){
@@ -83,12 +88,27 @@ int tree(int i){
 
 }
 
+
+
 int main () { 
+    int i;   
+
    cout << "Input Higth: ";
    cin  >>  i;
  
- tree(i);
+ tree1(i);
  
+ cout << endl << endl;
+
+ tree2(i);
+
+ cout << endl << endl;
+
+ tree3(i);
+
+ cout << endl << endl;
+
+
  return(0);
  }
                                                       
