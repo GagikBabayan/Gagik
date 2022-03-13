@@ -2,83 +2,49 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-
-int main () {
-
-  srand (time(0));
-
-  const  int m = 2, n = 4;
+int main() {
+    srand(time(0));
+    const int m = 4, n = 4;
+    double matrix[m][n];
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = rand() % 10;
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    int Max = 0 , Min = 0 , rev = 0;
+    for (int i = 0; i < m; i++)
+    {
+        
  
-  int Max,Min;  
-
-  int  matrix[m][n];
-
-
-
-  for(int i = 0;i < m;i++) {
-
-
-      for(int j = 0;j < n;j++) {
-
-
-          matrix[i][j] = rand () % 10;
-
-          cout << matrix[i][j] << " ";
-          
-      }
-
-      cout << endl;
-  }
-
-
-  for(int i = 0;i < m;i++) {
-
-      Max = 0;
-      Min = 0;
-      
-
-      for(int j = 1;j < n;j++) {
-
-          if(matrix[i,j] > matrix[i,Max]) {
-    
-             Max = j;
-          }
-
-          if(matrix[i,j] < matrix[i,Min]) {
-
-             Min = j;
-          }
-      }
-
-
-          matrix[i][Min] = matrix[i][Max] + matrix[i][Min];
-
-          matrix[i][Max] = matrix[i][Min] - matrix[i][Max];
-
-          matrix[i][Min] = matrix[i][Min] - matrix[i][Max];
-          
-
-  }  
-
+        for (int j = 0; j < m; j++)
+        {
+            if (matrix[i][j] > matrix[i][Max])
+            {
+                Max = j;
+            }
+            if (matrix[i][j] < matrix[i][Min])
+            {
+                Min = j;
+            }
+        }
+ 
+ 
+        cout << endl << "Max = " <<  i <<" " << Max << "    " << "Min = " << i << " " << Min << endl;    // Min Max  i and j
+ 
+        rev = matrix[i][Max];
+        matrix[i][Max] = matrix[i][Min];
+        matrix[i][Min] = rev;
+ 
+        Min = 0, Max = 0;
+    }
     cout << endl << endl;
-
-    for(int i = 0;i < m;i++) {
- 
- 
-       for(int j = 0;j < n;j++) {
- 
- 
-          cout <<  matrix[i][j] << " ";
- 
-       }
-  
-      cout << endl; 
-
-   }
-
-
-
-
-
-return 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
