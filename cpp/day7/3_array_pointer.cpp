@@ -2,27 +2,39 @@
  
 using namespace std;
  
+
+void fun(int *index,int size,int arr[]);
+
 int main() {
 
-    int array[10];
+    const  int size = 5;
+    
+    int arr[5];
  
-    int  *index = array;
+    int *index = arr;
 
- 
-    for (int i = 0; i < 10; i++) {
-        
-          cin >> *(index + i);
-    }
+    fun(index,size,arr);    
 
- 
-    for (int i = 0; i < 10; i++) {
- 
-          cout << *(index + i) << " "; 
-    }
-
-
-    cout << endl;
- 
 return 0;
+
+}
+
+
+
+void fun(int *index,int size ,int arr[]) {
+
+    int sum = 0;
+
+    while( index <= arr + size -1) {
+  
+    
+        cin >> *index;
+
+        sum += *index;
+
+        *index++;
+    } 
+
+    cout << sum;
 
 }
