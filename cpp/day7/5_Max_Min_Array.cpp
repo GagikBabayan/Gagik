@@ -1,6 +1,86 @@
 #include <iostream> 
  
 using namespace std;
+
+
+void swap(int* a,int* b)
+{
+	
+	*b = *a;
+}
+
+
+void reverse(int array[], int array_size,int* max,int* min)
+{
+
+
+	int *pointer1 = array,
+
+
+		*pointer2 = array + array_size - 1;
+     
+      cout << endl <<*pointer2;
+	while (pointer1 > pointer2) {
+	
+    if(*pointer1 > *max) {
+      cout << pointer2 << "   ";
+
+    	swap(pointer1,max);
+    }
+		
+      pointer1++;
+	}
+
+    pointer1 = array;
+
+    pointer2 = array + array_size -1;
+
+  while (pointer1 > pointer2) {
+
+    if(*pointer1 < *min) {
+     
+          cout << pointer1 << "   "; 
+        swap(pointer1,min);
+    }
+  
+      pointer1++;
+
+  }
+
+}
+
+
+void print(int* array, int array_size)
+{
+
+
+	int *length = array + array_size,
+
+
+	*position = array;
+
+	cout << "Array = ";
+
+	for (position = array; position < length; position++)
+	
+  	cout << *position << " ";
+  }
+
+
+/*void input(int* array,int array_size) {
+
+  int  *length = array + array_size;
+
+
+  int  *pasition = array;
+
+  for (pasition = array; pasition < length;pasition++){
+  
+    cin >> *pasition;
+  }
+}
+*/
+
  
 int main(){
 
@@ -10,40 +90,23 @@ int main(){
  
     int *index = array;
  
+   for(int i=0;i<size;i++) {
+    cin >> array[i];
+ }
+  //  input (array,size);
 
-    for (int i = 0; i < size; i++) {
+    int  max = *index,min = *index; 
 
-        cin >> *(index + i);
-    }
+    print (array,size);
 
-
-    int  max = *index ,min = *index;
-
-    int *big  = &min;
-
-    int *small  = &max;
- 
-
-    for (int i = 0; i < size; i++) {
- 
-        if( *(index+i) > *big) {
-
-            *big = *(index + i);
-        }
-
+    reverse (array,size,&max,&min); 
     
-        if( *(index + i ) <  *small) {
-
-            *small = *(index + i);
-        } 
+    
  
-    }
-  
-    cout << endl;  
-  
-    cout << "Max = " << max << endl;
+    
+//    cout << "Max = " << max << endl;
 
-    cout << "Min = " << min << endl;
+//    cout << "Min = " << min << endl;
 
  
     return 0;
