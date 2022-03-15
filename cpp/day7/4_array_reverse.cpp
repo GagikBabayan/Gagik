@@ -1,47 +1,74 @@
-#include <iostream> 
- 
+
+
+#include <iostream>
 using namespace std;
- 
-int main()
+
+
+void swap(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+
+void reverse(int array[], int array_size)
 {
 
-    const int size = 5;
 
-    int array[size];
- 
-    int * index = array;
- 
-    for (int i = 0; i < size; i++) {
-        
-        cin >> *(index + i);
-    }
- 
-  
-    int *leng = array + size - 1; 
-    
-    int temp; 
-  
-    for (int i = 0; i < size; i++) {
-
-        temp = *(index + i); 
-
-        *(index + i)  = *(leng - i);
-
-        *(leng - i) = temp;
-
-    }
-
- 
-    for(int i = 0;i< size;i++) {
-    
-        cout << *(leng - i) << " ";
-
-    }
+	int *pointer1 = array,
 
 
-   cout << endl;
+		*pointer2 = array + array_size - 1;
 
-
-return 0;
-
+	while (pointer1 < pointer2) {
+	
+    	swap(pointer1, pointer2);
+		
+      pointer1++;
+		
+      pointer2--;
+	}
 }
+
+
+void print(int* array, int array_size)
+{
+
+
+	int *length = array + array_size,
+
+
+	*position = array;
+
+	cout << "Array = ";
+
+	for (position = array; position < length; position++)
+	
+  	cout << *position << " ";
+  }
+
+
+int main()
+{
+  const int size = 6;
+    
+	int array[] = { 2, 4, -6, 5, 6, -1 };
+
+	cout << "Original ";
+
+	print(array, size);
+
+  cout << endl;
+
+	cout << "Reverse ";
+
+	reverse(array, 6);
+
+	print(array, 6);
+
+  cout << endl;
+
+	return 0;
+}
+
