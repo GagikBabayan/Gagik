@@ -1,15 +1,14 @@
 #include <iostream>
-
+#include "mylib.h"
 using namespace std;
 
-int myfun (char* at);                                        // Myfun
 
 int main(int argc,char *argv[]) {
 
     int sum = 0,sum1 = 0;
     
 
-    cout << argc;  
+    
   
     for(int  i = 1;i < argc;i++){                             // Myfun
 
@@ -34,23 +33,5 @@ int main(int argc,char *argv[]) {
 }
 
 
-int myfun(char* at) {
-
-    int result = 0;
-
-    for (int i = 0;at[i] != '\0'; ++i) {                        //Myfun
-
-            if(at[i] >= 48 && at[i] <= 57) {
-    
-                    result = result * 10  + at[i] - '0';
-            }
-
-            else {
-                  result = 0;
-            }
-
-    }
 
 
-  return result;
-}
