@@ -20,8 +20,7 @@ int main() {
 
     cout << "Array =  ";
 
-    for(int i = 0; i < n; i ++)
-    {
+    for(int i = 0; i < n; i ++) {
         cout << arr[i] << ", ";
     }
     
@@ -29,16 +28,16 @@ int main() {
 
     for(int i = 0; i < n; i ++) {
         num = check(arr, i, n);
-        if(num > max)
-        {
+        
+        if(num > max){
             max = num;
             index = i;
         }
     }
+
     cout << "Output: ";
 
-    for(int i = index; i <= index + max; i++)
-    {
+    for(int i = index; i <= index + max; i++) {
         cout << arr[i] << ", ";
     }
 
@@ -60,5 +59,5 @@ int check(int* arr,int origin, int n) {
         }   
    }
 
-    return check;
+  return check;
 }
