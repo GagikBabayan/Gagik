@@ -50,21 +50,22 @@ string UnixToHuman(long int seconds) {
 
   if (check == 1) {
     while (true)  {
-			if (index == 1) {
-				if (Days - 29 < 0)  {
-					break;
-				}
-				month ++;
-				Days -= 29;
-			}
-			else  {
-				if (Days - daysOfMonth[index] < 0)  {
-					break;
-				}				month += 1;
-				Days -= daysOfMonth[index];
+      if (index == 1) {
+        if (Days - 29 < 0) {
+            break;
+        }
+        month ++;
+        Days -= 29;
+        }
+      else {
+        if (Days - daysOfMonth[index] < 0)  {
+            break;
+				}		
+        month += 1;
+        Days -= daysOfMonth[index];
 		  }			
 
-      index += 1;
+        index += 1;
 		}
 	}
 
