@@ -29,14 +29,14 @@ string UnixToHuman(long int seconds) {
   Year = 1970;	
 
   while (days >= 365) {
-		if (Year % 400 == 0 || (Year % 4 == 0 && Year % 100 != 0))  {
-			days -= 366;
+    if (Year % 400 == 0 || (Year % 4 == 0 && Year % 100 != 0))  {
+      days -= 366;
 		}
-		else  {
-			days -= 365;
+    else  {
+      days -= 365;
 		}
 
-    Year += 1;
+      Year += 1;
 	}
 
   cout << "Days: " << days << endl;
