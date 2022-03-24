@@ -47,10 +47,10 @@ int main() {
     }
     i++;
     text << correct(word) << " ";
-         text << correct(word) << " ";
+    
   }
   text.close();
   return 0;
 }
-                                                                                                                                            1,1           Top
+                                                                                                                                  
 
