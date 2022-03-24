@@ -5,7 +5,7 @@ using namespace std;
 
 string correct(string word) {
   ifstream fonc;
-  fonc.open("dictionary.txt");
+  fonc.open("word.txt");
   string word_now;
   int count = 0;
   while(!fonc.eof()) {
