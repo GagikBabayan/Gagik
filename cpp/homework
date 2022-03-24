@@ -1,0 +1,56 @@
+#include <iostream>
+  2 #include <fstream>
+  3 
+  4 using namespace std;
+  5 
+  6 string correct(string word);
+  7 
+  8 int main() {
+  9   string line;
+ 10   cout << "Input: ";
+ 11   getline(cin, line);
+ 12   line += " ";
+ 13   string word;
+ 14   int i = 0;
+ 15   ofstream text;
+ 16   text.open("corrected.txt");
+ 17   while(line[i] != '\0') {
+ 18     word = "";
+ 19     for(;line[i] != ' '; i++){
+ 20       word += line[i];
+ 21     }
+ 22     i++;
+ 23     text << correct(word) << " ";
+ 24   }
+ 25   text.close();
+ 26   return 0;
+ 27 }
+ 28 string correct(string word) {
+ 29   ifstream fonc;
+ 30   fonc.open("dictionary.txt");
+ 31   string word_now;
+ 32   int count = 0;
+ 33   while(!fonc.eof()) {
+ 34     count = 0;
+ 35     getline(fonc, word_now);
+ 36     if(word_now.size() != word.size()){
+ 37       continue;
+ 38     }
+ 39     for(int i = 0; word[i] != '\0'; i++) {
+ 40       if(word[i] != word_now[i]){
+ 41         count ++;
+ 42       }
+ 43     }
+ 44     if(count == 1) {
+ 45       break;
+ 46     }
+ 47   }
+ 48   fonc.close();
+ 49   if(count != 1) {
+  if(count != 1) {
+ 50     return word;
+ 51   }
+ 52   return word_now;
+ 53 }
+                
+                                 
