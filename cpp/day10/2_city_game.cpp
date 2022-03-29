@@ -64,11 +64,11 @@ void game(int x) {
                     "donbas",
                     "kiev",
                     "paris",
-	                  "astana",
-	                  "dublin",
-	                  "zaltsburg"
-	                  "pekin",
-	                  "mumbai"
+                    "astana",
+                    "dublin",
+                    "zaltsburg"
+                    "pekin",
+                    "mumbai"
   };
   int size = sizeof(city)/sizeof(city[0]);
   int rand_index = rand () % size;
