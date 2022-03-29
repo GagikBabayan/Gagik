@@ -10,32 +10,32 @@ void game(int x);
 
 int main() {
   int option = optionPlayer(inputPlayer());
-	game(option);
-	return 0;
+  game(option);
+  return 0;
 }
 
 int inputPlayer() {
   cout << "\t\t=========================";
-	cout << "\n\t\t\t City Game \n";
+  cout << "\n\t\t\t City Game \n";
   cout << "\t\t=========================";
-  cout << "\n\t\t1.Play User : Click 1 \n";
+  cout << "\n\t\t1.Play User : Click 1 \n"; 
   cout << "\n\t\t2.Play Computer : Click 2\n";
   cout << "\t\t=========================\n\n";
-	cout << "Choose player : ";
-	int player;
-	cin >> player;
-	return player;
-
+  cout << "Choose player : ";
+  int player;
+  cin >> player;
+  
+  return player;
 }
 
 int optionPlayer(int player) {
-	if(player == 1) {
+  if(player == 1) {
     return 1;
   }
   else if(player == 2) {
-    return 2;
+    return 2; 
   }
-	return 0;
+  return 0;
 }
 
 void game(int x) {
