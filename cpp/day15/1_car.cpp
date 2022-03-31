@@ -21,8 +21,7 @@ struct data {
 void das(data  c);
 
 int main () {
-
-  struct data info[7];
+  struct data info[11];
   ifstream file;
   file.open("car_data.txt");
   string str = "", info_string[7];
@@ -37,154 +36,146 @@ int main () {
       info[j].mileage = stod(info_string[3].substr(0, info_string[3].size()-1));
       info[j].engine_capacity = stod(info_string[4].substr(0, info_string[4].size()-1));
       info[j].gearbox = info_string[5].substr(0, info_string[5].size()-1);
-      info[j].color = info_string[6]; 
-   
+      info[j].color = info_string[6];
+
 
       j++;
       i = -1;
     }
     i++;
   }
+  
 
   cout << "=================================================";
   cout << "\n\t\tCar  Search Programm\n";
   cout << "=================================================";
 
   cout << "\n\n";
-  
+
   cout << "\t\tSearch Car Filter\n";
   cout << "\t\t=================\n";
 
-  cout << "Brand | Price | Mileage | Engine capacity | Gearbox | Color";
-  cout << "\n\n" << "Input: ";
-  
-  string filter = "";
-  getline(cin,filter);
+  cout << "0 - Search | 1 - brand | 2 - model | 3 -  price | 4 - mileage | 5 -  engine capacity | 6 - gearbox | 7 - color";
+  cout << "\n\n";
+    bool check = true;
+    bool temp[] = {false,false,false,false,false,false,false};
+    string b1;
+    string mod;
+    double p2_1;
+    double p2_2;
+    double m3_1;
+    double m3_2;
+    double e4;
+    string g5;
+    string c6;
 
-  if(filter == "Brand") {
-    string  Brand_data = "";
-    cout << "Input Brand: ";
-    getline(cin,Brand_data);
-    for(int i = 0; i < 3; i++ ) {
-      if(Brand_data == info[i].brand) {
-        das(info[i]);
-      }
-    
-    }
+  while(check) {
+    cout << "Prameters Input: ";
+    int i;
+    cin >> i;
+    switch (i) {
+        case 0:
+            check = false;
+            break;
+        case 1:
+            cout << "Input Brand: ";
+            cin  >> b1;
+            temp[0] = true;
+            break;
+        case 2:
+            cout << "Input Model: ";
+            cin  >> mod;
+            temp[1] =true;
+            break;
+        case 3:
+            cout << "Input Price Min: ";
+            cin >> p2_1;
+            cout << "Input Price Max: ";
+            cin  >> p2_2;
+            temp[2] = true;
+            break;
+        case 4:
+            cout << "Input Mileage Min: ";
+            cin  >> m3_1;
+            cout << "Input Mileage Max: ";
+            cin  >> m3_2;
+            temp[3] = true;
+            break;
+        case 5:
+            cout << "Input Engine capacity: ";
+            cin >> e4;
+            temp[4] = true;
+            break;
+        case 6:
+           cout << "Input Gearbox: ";
+            cin  >> g5;
+            temp[5] = true;
+            break;
+        case 7:
+            cout << "Input Color";
+            cin >> c6;
+            temp[6] = true;
+            break;
+        }
 
-  }
-  double arr[3];
-  if(filter == "Price") {
-    double Price_data;
-    cout << "Input Price: ";
-    cin  >> Price_data;
-    for(int i = 0; i < 3; i++) {
-      arr[i] = info[i].price;
-    }
-
-    Price_data = about_max(Price_data,arr);  
-    
-    for(int i = 0; i < 3; i++ ) {
-      if(Price_data == info[i].price) {
-        das(info[i]);
-      }
-    
-    }
-
- 
-  }
-  else if(filter == "Mileage") {
-    double Mileage_data;
-    cout << "Input Mileage: ";
-    cin  >> Mileage_data;
-    for(int i = 0; i < 3; i++) {
-      arr[i] = info[i].mileage;
-    }
-    Mileage_data = about_max(Mileage_data,arr);  
-    
-    for(int i = 0; i < 3; i++ ) {
-      if(Mileage_data == info[i].mileage) {
-        das(info[i]);  
-      }
-    
-    }
-
- 
-  }
-  else if(filter == "Engine capacity") {
-    double Engine_data;
-    cout << "Input Mileage: ";
-    cin  >> Engine_data;
-    for(int i = 0; i < 3; i++) {
-      arr[i] = info[i].engine_capacity;
-    }
-    Engine_data = about_max(Engine_data,arr);  
-    
-    for(int i = 0; i < 3; i++ ) {
-      if(Engine_data == info[i].engine_capacity) {
-        das(info[i]); 
-      }
-    
-    }
-
- 
-  }
-  if (filter == "Gearbox") {
-    string  Gearbox_data = "";
-    cout << "Input Gearbox: ";
-    getline(cin,Gearbox_data);
-    for(int i = 0; i < 3; i++ ) {
-      if(Gearbox_data == info[i].gearbox) {
-        das(info[i]);
-      }
-    
-    }
-
-  
-  }
-   if (filter == "Color") {
-    string  Color_data = "";
-    cout << "Input Color: ";
-    getline(cin,Color_data);
-    for(int i = 0; i < 3; i++ ) {
-      if(Color_data == info[i].color) {
-        das(info[i]);       
-      }
-    
-    }
-
-  
-  }
-
-
-  return 0;
 }
+        for (int k = 0; k < 11; k++) {
 
-double about_max(double Data,double arr[]) {
-  double index = arr[0];
-  double temp = abs(Data - arr[0]);
-  for(int i = 1; i < 3; i++) {
-    if(temp > abs(Data - arr[i])){
-      temp = abs(Data -arr[i]);
-      index = arr[i];
-    }
+        if( temp[0] && b1 != info[k].brand ) {
 
-  }
-  return index;
-}
+           continue;
+        }
 
-void das(data c){
+        if(temp[1] && mod != info[k].model) {
+            continue;
+        }
 
+        if(temp[2] && (info[k].price <  p2_1 || info[k].price > p2_2)) {
+
+                continue;
+        }
+
+        if(temp[3] && (info[k].mileage <  m3_1 || info[k].mileage > m3_2)){
+                continue;
+        }
+
+        if(temp[4] && info[k].engine_capacity != e4){
+
+                continue;
+        }
+
+        if(temp[5] && info[k].gearbox != g5) {
+
+                continue;
+        }
+
+        if(temp[6] && info[k].color != c6) {
+
+                continue;
+        }
+  
   cout << "=================================" << endl;
-  cout << "Brand:-----------------> " << c.brand << endl;
-  cout << "Model:-----------------> " << c.model << endl;
-  cout << "Price:-----------------> " << c.price << " $" << endl;
-  cout << "Mileage:---------------> " << c.mileage << " km" << endl;
-  cout << "Engine capacity:-------> " << c.engine_capacity << " L" << endl;
-  cout << "Gearbox:---------------> " << c.gearbox << endl;
-  cout << "Color:-----------------> " << c.color << endl; 
+  cout << "Brand:-----------------> " << info[k].brand << endl;
+  cout << "Model:-----------------> " << info[k].model << endl;
+  cout << "Price:-----------------> " << info[k].price << " $" << endl;
+  cout << "Mileage:---------------> " << info[k].mileage << " km" << endl;
+  cout << "Engine capacity:-------> " << info[k].engine_capacity << " L" << endl;
+  cout << "Gearbox:---------------> " << info[k].gearbox << endl;
+  cout << "Color:-----------------> " << info[k].color << endl; 
   cout << "=================================" << endl;
 
+
+   }
+
+    
+
+  
+
 }
+
+
+
+
+
 
 
