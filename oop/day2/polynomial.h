@@ -22,5 +22,6 @@ class Polynomial{
     std::ostream& operator<<(std::ostream&, const Polynomial&);
 		int degree();
 		void print();
+    ~Polynomial();
 };
 #endif
