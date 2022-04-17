@@ -131,4 +131,7 @@ void Polynomial::print(){
   }
 	cout << "\n";
 }*/
+Polynomial::~Polynomial(){
+    delete []i _coefficent;
 
+}
