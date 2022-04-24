@@ -29,7 +29,8 @@ public:
     void RemoveAt(int index);                                         //  Remove 
     void Remove_back();
     void Clear();
-    friend ostream& operator <<(ostream &out,const List<T> &);
+    template <class Type>
+    friend ostream& operator <<(ostream &out,const List<Type> &);
 private:
     int Size;
     Node<T>* head;
