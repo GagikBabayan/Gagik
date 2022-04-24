@@ -136,7 +136,8 @@ void List<T>::Remove_back()
 template <class T>
 ostream& operator <<(ostream &out,const List<T> &n)
 {
-    Node<T> *temp = n.head;
+    Node<T> *temp;
+    temp = n.head;
     while(temp != nullptr)
     {
         out << temp->data << " ";
