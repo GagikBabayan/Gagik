@@ -46,6 +46,7 @@ void DeQueue<T>::pushFront(T value)
 {
     _list.Add_front(value);
 }
+
 template<typename T>
 void DeQueue<T>::pushBack(T value)
 {
