@@ -1,7 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-
+#include <iostream> 
+using namespace std;
 template <class T>
     class Node                                                        // Nodes Class
     {
@@ -30,7 +31,7 @@ public:
     void Remove_back();
     void Clear();
     template <class Type>
-    friend ostream& operator <<(ostream &out,const List<Type> &);
+    friend ostream& operator << (ostream &out, const List<Type>& );
 private:
     int Size;
     Node<T>* head;
