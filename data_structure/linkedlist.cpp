@@ -74,6 +74,7 @@ T& List<T>::operator[](const int index)                               //  Overlo
         current = current->pNext;
         counter++;
     }
+   return current->data;
 }
  
 template <class T>                                                // Add Nodes from the beginning implementation
@@ -134,9 +135,9 @@ void List<T>::Remove_back()
 }
 
 template <class T>
-ostream& operator <<(ostream &out,const List<T> &n)
+ostream& operator <<(ostream &out,const List<T>& n)
 {
-    Node<T> *temp;
+    Node<T>* temp;
     temp = n.head;
     while(temp != nullptr)
     {
