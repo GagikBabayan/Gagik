@@ -4,7 +4,8 @@
 #include "../LinkedList/linkedlist.h"
 
 template<typename T>
-class Queue{
+class Queue
+{
 private:
     List<T> _list;
 
