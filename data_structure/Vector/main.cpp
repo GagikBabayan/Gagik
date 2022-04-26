@@ -12,13 +12,13 @@ int main () {
         vector.Add(i);
     }
 
-    for(int i = 0; i < 10; i++)
+     for(int i = 0; i < 10; i++)
     {
-        cout << vector << endl;
-        vector.RemoveAt(0);
+        cout << vector[i] << endl;
+       // vector.RemoveAt(1);
 
     }
-   
+    
 
     return 0;
 }
