@@ -24,7 +24,7 @@ public:
 template<typename T>
 T DeQueue<T>::popFront()
 { 
-    T return_value = _list[1];
+    T return_value = _list.getElement(0);
     _list.Remove_front();
     return return_value;
 }
@@ -32,7 +32,9 @@ T DeQueue<T>::popFront()
 template<typename T>
 void DeQueue<T>::popBack()
 {
+    T return_value = _list.getElement(_list.GetSize() - 1);
     _list.Remove_back(); 
+    return return_value;
 }
 
 template<typename T>
@@ -56,7 +58,7 @@ void DeQueue<T>::pushBack(T value)
 template<typename T>
 T DeQueue<T>::peekFront()
 {
-    return _list[0];
+    return _list.getElement(0);
 }
 
 template<typename T>
