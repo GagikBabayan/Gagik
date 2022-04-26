@@ -11,6 +11,6 @@ int main()
     que.pushBack(3);
     que.popFront();
     cout << que.peek() << endl;
-
+    cout << que.isEmpty() << endl;
     return 0;
 }
