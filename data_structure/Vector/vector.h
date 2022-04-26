@@ -21,6 +21,7 @@ class MyVector
         int GetSize() const;
         int GetCapacity() const;
         void RemoveAt(int index);
+        void RemoveFront();
         void RemoveAll();
         T& operator[](const int index) const;
         template <class Type>
