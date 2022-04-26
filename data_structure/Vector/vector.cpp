@@ -16,42 +16,46 @@ MyVector<T>::~MyVector()
 {
     delete [] arr;
     size = 0;
-    capacity = 0;
+    capacity = 1;
 
+}
+
+template<typename T>
+void MyVector<T>::AddAt(T data,int index)
+{
+    if (GetSize() > GetCapacity()) 
+    {   
+        capacity *= 2;
+    }
+    T* temp = new T[2 * capacity];
+    for (int i = 0; i < capacity; i++) {
+        if(i < index)
+        {
+            temp[i] = arr[i];
+        }
+        else if(i > index)
+        {
+            temp[i] = arr[i - 1];
+        }
+    }
+    temp[index] = data;
+    delete[] arr;
+    arr = temp;
+    size++;
 }
 
 template<typename T>
 void MyVector<T>::Add(T data)
 {
-    if (size == capacity) 
-    {
-        T* temp = new T[2 * capacity];
-        for (int i = 0; i < capacity; i++) {
-            temp[i] = arr[i];
-        }
-        delete[] arr;
-        capacity *= 2;
-        arr = temp;
-    }       
-    arr[size] = data;
-    size++;
-}
-
-template<typename T>
-void MyVector<T>::AddAt(T data, int index)
-{
  
-    if (index == capacity)
+    if (GetSize() <  GetCapacity())
     {
-        Add(data);
-    }
-    else if(index < size)
-    {
-        arr[index] = data;
-    }
-    else {
-        arr[index] = data;
+        arr[GetSize() + 1] = data;
         size++;
+    }
+    else 
+    {
+        AddAt(data,GetSize());
     }
             
  }
@@ -59,23 +63,7 @@ void MyVector<T>::AddAt(T data, int index)
 template<typename T>
 void MyVector<T>::AddFront(T data)
 {
-    if(capacity == size)
-    {
-        T* temp = new T[2 * capacity];
-        for (int i = 0; i < capacity; i++) {
-            temp[i] = arr[i];
-        }
-        delete[] arr;
-        capacity *= 2;
-        arr = temp;
-    }
-    
-    for(int i = 0; i < size; i++)
-    {
-        arr[size - i] = arr[size - i - 1];
-    }
-    arr[0] = data;
-    size++;   
+   AddAt(data,0);
 }
 
 template<typename T>
@@ -95,12 +83,26 @@ int MyVector<T>::GetSize() const
 template<typename T>
 void MyVector<T>::RemoveAt(int index)
 {
-    for(int i = index; i < size; i++)
-    {
-        arr[i] = arr[i+1];
-
+    T* temp = new T[size];
+    for(int i = index - 1; i < GetSize(); i++)
+    {   if(i < size)
+        {
+            temp[i] = arr[i+1];
+        }
+        else if(i > index)
+        {
+            temp[i] = arr[i + 1];
+        }
     }
+    delete[] arr;
+    arr = temp;
     size--;
+}
+
+template<typename T>
+void MyVector<T>::RemoveFront()
+{
+    RemoveAt(0);
 }
 
 template<typename T>
