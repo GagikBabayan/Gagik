@@ -5,7 +5,8 @@
 #include "../LinkedList/linkedlist.h"
 
 template<typename T>
-class DeQueue{
+class DeQueue
+{
 private:
     List<T> _list;
 
