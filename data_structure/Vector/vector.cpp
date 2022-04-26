@@ -27,7 +27,9 @@ void MyVector<T>::AddAt(T data,int index)
     {   
         capacity *= 2;
     }
+
     T* temp = new T[2 * capacity];
+    
     for (int i = 0; i < capacity; i++) {
         if(i < index)
         {
@@ -63,29 +65,29 @@ void MyVector<T>::Add(T data)
 template<typename T>
 void MyVector<T>::AddFront(T data)
 {
-   AddAt(data,0);
+    AddAt(data,0);
 }
 
 template<typename T>
 int MyVector<T>::GetCapacity() const
 {
     return capacity;
-    
 }
 
 template<typename T>
 int MyVector<T>::GetSize() const
 {
     return size;
-    
 }
 
 template<typename T>
 void MyVector<T>::RemoveAt(int index)
 {
     T* temp = new T[size];
+
     for(int i = index - 1; i < GetSize(); i++)
-    {   if(i < size)
+    {
+        if(i < size)
         {
             temp[i] = arr[i+1];
         }
@@ -122,7 +124,7 @@ ostream& operator << (ostream &out, const MyVector<Type>& array)
 {
     for (int i = 0; i < array.GetSize(); i++)
     {
-            out << array[i] << " ";
+        out << array[i] << " ";
     }
 
     return out;
@@ -130,10 +132,11 @@ ostream& operator << (ostream &out, const MyVector<Type>& array)
 
 template<typename T>
 void MyVector<T>::Print()
+{
+    for (int i = 0; i < size; i++) 
     {
-        for (int i = 0; i < size; i++) {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-    } 
+       cout << arr[i] << " ";
+    }
+    cout << endl;
+} 
 
