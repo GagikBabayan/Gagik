@@ -2,7 +2,8 @@
 #include "vector.cpp"
 
 
-int main () {
+int main () 
+{
 
     MyVector<int>  vector;
     
@@ -12,7 +13,7 @@ int main () {
         vector.Add(i);
     }
 
-     for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 10; i++)
     {
         cout << vector[i] << endl;
        // vector.RemoveAt(1);
