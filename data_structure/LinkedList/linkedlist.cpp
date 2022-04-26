@@ -137,6 +137,23 @@ void List<T>::Remove_back()
  
 }
 
+template<class T>
+int List<T>::getElement(const int index)
+{
+    Node<T>* check = head;
+    int count = 0;
+    while(check != nullptr)
+    {
+        if(count == index)
+        {
+            return(check->data);
+        }
+        count++;
+        check = check->pNext;
+    }
+    return 0;
+}
+
 template <class T>
 ostream& operator <<(ostream &out,const List<T>& n)
 {
