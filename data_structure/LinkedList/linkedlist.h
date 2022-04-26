@@ -30,6 +30,7 @@ public:
     void RemoveAt(int index);                                         //  Remove 
     void Remove_back();
     void Clear();
+    int getElement(const int index);
     template <class Type>
     friend ostream& operator << (ostream &out, const List<Type>& );
 private:
