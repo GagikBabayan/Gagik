@@ -5,7 +5,7 @@ int Partition(int* targetArr, int start, int end) {
     int value = targetArr[end];
     int pos = start;
     
-    for (int i = start; i < end ; i++) {
+    for (int i = start; i < end; i++) {
         if (targetArr[i] <= value) {
             int temp = targetArr[i];
             targetArr[i] = targetArr[pos];
@@ -30,9 +30,5 @@ int* QuickSort(int* Arr, int start, int end) {
    
   return  Arr;
 }
-
-
-#endif
-
 
 #endif
