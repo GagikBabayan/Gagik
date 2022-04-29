@@ -87,7 +87,7 @@
     cout <<  "Run Time = " << elapsed4;
     cout << endl;
     
-     Print(p4,size);
+    Print(p4,size);
 
     return 0;
 }
