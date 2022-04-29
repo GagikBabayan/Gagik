@@ -84,10 +84,10 @@
     double elapsed4 = double(end4- start4)/CLOCKS_PER_SEC;
 
     cout << "Quick Sorting" << "\n" << "Size = " << size << "\n";
-    cout <<  "Run Time = " << elapsed3;
+    cout <<  "Run Time = " << elapsed4;
     cout << endl;
     
-     Print(p4,size);
+    Print(p4,size);
 
     return 0;
 }
