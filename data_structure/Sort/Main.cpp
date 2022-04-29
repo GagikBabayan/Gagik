@@ -9,14 +9,14 @@
     mt19937 gen (time(0)); 
 
     int MyGenerator() {
-    int rand = gen() % 100;
+    int rand = gen() % 1000;
     return rand;
     }
     
     
     int main () {
     
-    const int size = 15;
+    const int size = 1500;
     int arr1[size];
     int arr2[size];
     int arr3[size];
@@ -72,7 +72,7 @@
 
     cout << "Merge Sorting" << "\n" << "Size = " << size << "\n";
     cout <<  "Run Time = " << elapsed3;
-    cout << endl;
+    cout << endl << endl;
     
     // Print(p3,size);
 
@@ -87,7 +87,7 @@
     cout <<  "Run Time = " << elapsed4;
     cout << endl;
     
-    Print(p4,size);
+     Print(p4,size);
 
     return 0;
 }
