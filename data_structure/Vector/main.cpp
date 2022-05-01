@@ -13,12 +13,14 @@ int main ()
         vector.Add(i);
     }
 
-    for(int i = 0; i < 10; i++)
+    
+    vector.AddAt(10,0);
+
+    for(int i = 0; i < 11; i++)
     {
         cout << vector[i] << endl;
-       // vector.RemoveAt(1);
-
     }
+
     
 
     return 0;
