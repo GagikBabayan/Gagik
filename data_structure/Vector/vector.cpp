@@ -28,9 +28,9 @@ void MyVector<T>::AddAt(T data,int index)
         capacity *= 2;
     }
 
-    T* temp = new T[2 * capacity];
+    T* temp = new T[capacity];
     
-    for (int i = 0; i < capacity; i++) {
+    for (int i = 0; i < GetSize(); i++) {
         if(i < index)
         {
             temp[i] = arr[i];
@@ -38,6 +38,9 @@ void MyVector<T>::AddAt(T data,int index)
         else if(i > index)
         {
             temp[i] = arr[i - 1];
+        }
+        else {
+            temp[i + 1] = arr[i];
         }
     }
     temp[index] = data;
@@ -52,7 +55,7 @@ void MyVector<T>::Add(T data)
  
     if (GetSize() <  GetCapacity())
     {
-        arr[GetSize() + 1] = data;
+        arr[GetSize()] = data;
         size++;
     }
     else 
@@ -83,13 +86,17 @@ int MyVector<T>::GetSize() const
 template<typename T>
 void MyVector<T>::RemoveAt(int index)
 {
-    T* temp = new T[size];
+    if (GetSize() <= GetCapacity() / 2 + 1) 
+    {
+        capacity /= 2;
+    }
+    T* temp = new T[capacity];
 
     for(int i = index - 1; i < GetSize(); i++)
     {
-        if(i < size)
+        if(i < index)
         {
-            temp[i] = arr[i+1];
+            temp[i] = arr[i];
         }
         else if(i > index)
         {
@@ -110,7 +117,10 @@ void MyVector<T>::RemoveFront()
 template<typename T>
 void MyVector<T>::RemoveAll()
 {
-   ~MyVector();
+   for(int i = 0; i < capacity ; i++)
+   {
+       arr[i] = 0;
+   }
 }
 
 template<typename T>
