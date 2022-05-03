@@ -4,7 +4,8 @@ using namespace std;
  
 #include "BSTree.hpp"
  
-int main() {
+int main() 
+{
     
     Tree* root = new Tree(13);
  
