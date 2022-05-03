@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Tree {
+class Tree 
+{
 public:
     int _data;
     class Tree* left;
@@ -27,27 +28,34 @@ public:
     
 };
  
-Tree* Add(int data, Tree*& tree) {
-    if (!tree) {
+Tree* Add(int data, Tree*& tree)
+{
+    if (!tree) 
+    {
         tree = new Tree;
         tree->_data = data;
         tree->left = 0;
         tree->right = 0;
         return tree;
     }
-    else {
-        if (tree->_data > data) {
+    else 
+    {
+        if (tree->_data > data) 
+        {
             Add(data, tree->left);
         }
-        else {
+        else 
+        {
             Add(data, tree->right);
         }
     }
     return tree;
 }
  
-void Print(Tree* temp) {
-    if (temp == nullptr) {
+void Print(Tree* temp) 
+{
+    if (temp == nullptr) 
+    {
         return;
     }
     Print(temp->left);
@@ -55,33 +63,40 @@ void Print(Tree* temp) {
     Print(temp->right);
 }
  
-bool is_Empty(Tree* tree) {
+bool is_Empty(Tree* tree) 
+{
     return tree == nullptr;
 }
  
-void Stack(Tree* root) {
+void Stack(Tree* root) 
+{
     int min = root->_data;
     int sum = 0;
  
-    if (root == nullptr) {
+    if (root == nullptr)
+    {
         return;
     }
  
     stack<Tree*> temp;
     temp.push(root);
  
-    while (!temp.empty()) {
+    while (!temp.empty()) 
+    {
         Tree* tree = temp.top();
-        if (min >= tree->_data) {
+        if (min >= tree->_data) 
+        {
             min = tree->_data;
         }
         sum += tree->_data;
         temp.pop();
  
-        if (tree->left != nullptr) {
+        if (tree->left != nullptr) 
+        {
             temp.push(tree->left);
         }
-        if (tree->right != nullptr) {
+        if (tree->right != nullptr) 
+        {
             temp.push(tree->right);
         }
     }
