@@ -20,6 +20,8 @@ public:
     {
         root = new Node();
     }
+
+    void DeleteNode(int);
 };
 
 void Add(int data, Node *tree)
@@ -130,6 +132,72 @@ bool Search(int data, Tree *tree)
 {
     return Search(data, tree->root);
 }
+
+void Tree::DeleteNode(int value)
+{
+    if (!root)
+    {
+        return;
+    }
+
+    Node *current = root;
+    Node *prev = NULL;
+
+    while (current != NULL && current->data != value)
+    {
+        prev = current;
+        if (value < current->data)
+        {
+            current = current->left;
+        }
+        else
+        {
+            current = current->right;
+        }
+    }
+
+    if (current->left == NULL || current->right == NULL)
+    {
+        Node *newCurrent = (current->left == NULL) ? current->right : current->left;
+
+        if (current == prev->left)
+        {
+            prev->left = newCurrent;
+        }
+        else
+        {
+            prev->right = newCurrent;
+        }
+    }
+    else
+    {
+        Node *min = NULL;
+        Node *temp = current->right;
+
+        while (temp->left != NULL)
+        {
+            min = temp;
+            temp = temp->left;
+        }
+
+        if (min == NULL)
+        {
+            current->right = temp->right;
+        }
+        else
+        {
+            min->left = temp->right;
+        }
+
+        current->data = temp->data;
+    }
+}
+
+/*
+void DeleteNode(int data, Tree *tree)
+{
+  tree->root = DeleteNode(data, tree->root);
+}*/
 
 
 
