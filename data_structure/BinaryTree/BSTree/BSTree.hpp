@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include "Node.hpp"
+#include <vector>
+#include <queue>
 
 using namespace std;
-
 
 class Tree
 {
@@ -22,6 +23,11 @@ public:
     }
 
     void DeleteNode(int);
+    void insert(int);
+    bool ancestorTree(int **arr, int n);
+    int RootSearch(int **arr, int size);
+    bool createTree(int **arr, int n, vector<int> &nodes);
+    int SearchRoot(int **arr, int n);
 };
 
 void Add(int data, Node *tree)
@@ -67,14 +73,59 @@ bool Search(int data, Node *tree)
     return false;
 }
 
-void Print(Node *temp)
+
+bool Search(int data, Tree *tree)
+{
+    return Search(data, tree->root);
+}
+
+void dfs(Node *temp)
 {
     if (temp)
     {
-        Print(temp->left);
+        dfs(temp->left);
         cout << temp->data << " ";
-        Print(temp->right);
+        dfs(temp->right);
     }
+}
+
+void dfs(Tree *tree)
+{
+    dfs(tree->root);
+}
+
+
+void bfs(Node *root)
+{
+    queue<Node *> q;
+    if (root)
+    {
+        q.push(root);
+        cout << root->data << " ";
+    }
+
+    while (!q.empty())
+    {
+        root = q.front();
+        q.pop();
+
+        if (root->left)
+        {
+            q.push(root->left);
+            cout << root->left->data << " ";
+        }
+
+        if (root->right)
+        {
+            q.push(root->right);
+            cout << root->right->data << " ";
+        }
+    }
+}
+
+void bfs(Tree *tree)
+{
+    bfs(tree->root);
 }
 
 bool is_Empty(Node *tree)
@@ -85,14 +136,18 @@ bool is_Empty(Node *tree)
 int Min(Node *root)
 {
     while (root->left)
+    {
         root = root->left;
+    }
     return root->data;
 }
 
 int Max(Node *root)
 {
     while (root->right)
+    {
         root = root->right;
+    }
     return root->data;
 }
 
@@ -123,15 +178,44 @@ void Add(int data, Tree *tree)
     Add(data, tree->root);
 }
 
-void Print(Tree *tree)
+void Tree::insert(int value)
 {
-    Print(tree->root);
+    if (!root)
+    {
+        return;
+    }
+
+    queue<Node *> queue;
+    queue.push(root);
+
+    while (!queue.empty())
+    {
+        Node *current = queue.front();
+        queue.pop();
+
+        if (current->left)
+        {
+            queue.push(current->left);
+        }
+        else
+        {
+            current->left = new Node(value);
+            break;
+        }
+
+        if (current->right)
+        {
+            queue.push(current->right);
+        }
+        else
+        {
+            current->right = new Node(value);
+            break;
+        }
+    }
 }
 
-bool Search(int data, Tree *tree)
-{
-    return Search(data, tree->root);
-}
+
 
 void Tree::DeleteNode(int value)
 {
@@ -193,12 +277,95 @@ void Tree::DeleteNode(int value)
     }
 }
 
-/*
-void DeleteNode(int data, Tree *tree)
+bool Tree::ancestorTree(int **arr, int n)
 {
-  tree->root = DeleteNode(data, tree->root);
-}*/
+
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[i][j] == 1)
+            {
+                count++;
+            }
+            if ((arr[i][j] == 1 && arr[j][i] == 1) || (count > 2))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 
 
-#endif 
+int Tree::SearchRoot(int **arr, int n)
+{
+    int temp = 0;
+    int root;
+    bool check = false;
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[j][i] == 0)
+            {
+                count++;
+            }
+            if (count == n)
+            {
+                temp++;
+                if (temp > 1)
+                {
+                    check = false;
+                }
+                else
+                {
+                    check = true;
+                    root = i;
+                }
+            }
+        }
+    }
+
+    return check ? root : -1;
+}
+
+bool Tree::createTree(int **arr, int n, vector<int> &nodes)
+{
+    int matrix = SearchRoot(arr,n);
+    if ((SearchRoot(arr, n)) < 0)
+    {
+        return false;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[i][j] == 1)
+            {
+                count++;
+            }
+            if (arr[i][j] == 1 && arr[j][i] == 1)
+            {
+                return false;
+            }
+            if (arr[i][j] == 1)
+            {
+                nodes.push_back(j);
+            }
+        }
+        if (count > 2)
+        {
+            return false;
+        }
+    }
+    root = new Node(matrix);
+
+    return true;
+}
+
+#endif
