@@ -22,7 +22,7 @@ int main() {
     for (int i = 0; i < 7; i++) {
         graph.removeVertex(_genInteger(0, graph.numberOfVertices() - 1));
 
-        graph.printAdjacencyGraph();
+        graph.printGraph();
     }
 
     
