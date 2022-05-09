@@ -17,9 +17,8 @@ int main() {
                               _genInteger(0, graph.numberOfVertices() - 1));
     }
     graph.print();
-    cout << endl;
-        
-    cout << "|N| = " << graph.nodeNeighBours(3) << endl;
+    cout << endl; 
+    
     for (int i = 0; i < 7; i++) {
         graph.removeVertex(_genInteger(0, graph.numberOfVertices() - 1));
 
