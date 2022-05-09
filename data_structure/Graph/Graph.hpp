@@ -38,7 +38,7 @@ public:
     void removeEdge(int, int);
  
     void print() const;
-    void printAdjacencyGraph() const;
+    void printGraph() const;
 };
  
 int Graph::numberOfVertices() const {
@@ -155,7 +155,7 @@ void Graph::print() const {
     }
 }
 
-void Graph::printAdjacencyGraph() const {
+void Graph::printGraph() const {
     cout << "|V| = " << numberOfVertices() << endl;
     cout << "|E| = " << numberOfEdges() << endl;
     cout << " ";
