@@ -24,7 +24,9 @@ public:
     int getOutDegree(int) const;
     int getDegree(int) const;
     int* nodeNeighBours(int) const;
- 
+
+    bool isConnected(int, int);
+
     void addVertex();
     void addDirectedEdge(int, int);
     void addEdge(int, int);
@@ -88,6 +90,12 @@ int* Graph::nodeNeighBours(int u) const {
     }
     return neighbours;
 }
+
+bool Graph::isConnected(int u, int v)
+{
+    return graph[u][v] == 1 && graph[u][v] == 1;
+}
+
  
 void Graph::addVertex() {
     graph.push_back(vector<int>((int) graph.size(), 0));
