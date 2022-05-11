@@ -44,16 +44,16 @@ void Dijkstra(int **graph, int temp, int size)
 
     for (int k = 0; k < size; k++)
     {
-
       if (graph[m][k] != INT_MAX && distance[m] != INT_MAX && distance[m] + graph[m][k] < distance[k])
+      {
         distance[k] = distance[m] + graph[m][k];
+      }
     }
     isVisited[m] = true;
   }
 
   for (int k = 0; k < size; k++)
   {
-
     cout << distance[k] << endl;
   }
 }
