@@ -15,7 +15,7 @@ console.log(newArrayEmployee(dataEmployee));
 // 2. Ստեղծել աշխատակիցների ցուցակի նոր զանգված որոնց աշխատավարձը >=150000;
 
 const newSalary = (data) =>
-  data.filter((x) => Number(n.hr.salary.replace(/[^\w]/g, "") >= 150000));
+  data.filter((x) => Number(x.hr.salary.replace(/[^\w]/g, "") >= 150000));
 
 console.log(newSalary(dataEmployee));
 
@@ -34,7 +34,7 @@ console.log(oldEmployee(dataEmployee));
 
 const newSalaryBonus = (data) =>
   data
-    .filter((x) => Number(n.hr.salary.replace(/[^\w]/g, "") <= 100000))
+    .filter((x) => Number(x.hr.salary.replace(/[^\w]/g, "") <= 100000))
     .map((x) => ({
       ...x,
       hr: {
