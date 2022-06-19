@@ -79,3 +79,4 @@ const deleteEmployee = (data) => {
     console.log(`Նոր աշխատակիցների ցուցակ։ ${allEmployee}`);
   }, 3000);
 };
+deleteEmployee(dataEmployee);
