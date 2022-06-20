@@ -45,20 +45,6 @@ const newSalaryBonus = (data) =>
 
 console.log(newSalaryBonus(dataEmployee));
 
-// 5. Ստանալ աշխատակիցների քանակը ըստ քաղաքների
-//    {
-//       newYork: 11,
-//       singapore: 4,
-//       sanFrancisco: 14,
-//       ...
-//    }
-const numberCity = (data) =>
-  data.reduce(
-    (acc, x) =>
-      (acc[x.contact[0]] = acc[x.contact[0]] ? acc[x.contact[0]] + 1 : 1),
-    {}
-  );
-console.log(numberCity(dataEmployee));
 
 // 6. Աշխատանքից ազատել աշխատակցին։
 //   a) Տպել "Սպասեք" տեքստը և 3 վայրկյան սպասել։ ( setTimeout() )
