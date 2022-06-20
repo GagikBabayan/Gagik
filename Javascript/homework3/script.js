@@ -32,18 +32,30 @@ console.log(oldEmployee(dataEmployee));
 // 4. Ստանալ այն աշխատակիցների ցուցակը, որոնց աշխատավարձը <= 100000 և ավելացնել նոր դաշտ՝ բոնուս, որի
 //    արժեքը = աշխատավարձի 20%;
 
-const newSalaryBonus = (data) =>
-  data
-    .filter((x) => Number(x.hr.salary.replace(/[^\w]/g, "") <= 100000))
-    .map((x) => ({
-      ...x,
-      hr: {
-        ...x.hr,
-        bonus: `${(Number(x.hr.salary.replace(/[^\w]/g, "")) * 20) / 100}`,
-      },
-    }));
+String.prototype.mysplice = function (idx, rem, str) {
+  return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
 
-console.log(newSalaryBonus(dataEmployee));
+let arrSalaryBonus = [];
+const newSalary = function (data) {
+  for (let i = 0; i < data.length; i++) {
+    if (Number(data[i].hr.salary.replace(/[^\w]/g, "")) <= 100000) {
+      arrSalaryBonus.push(data[i]);
+    }
+  }
+  for (let i = 0; i < arrSalaryBonus.length; i++) {
+    arrSalaryBonus[i].hr.bonus = `$${
+      (Number(arrSalaryBonus[i].hr.salary.replace(/[^\w]/g, "")) * 20) / 100
+    }`;
+  }
+
+  for (let i = 0; i < arrSalaryBonus.length; i++) {
+    arrSalaryBonus[i].hr.bonus = arrSalaryBonus[i].hr.bonus.mysplice(3, 0, ",");
+  }
+};
+
+newSalary(dataEmployee);
+console.log(arrSalaryBonus);
 
 
 // 6. Աշխատանքից ազատել աշխատակցին։
