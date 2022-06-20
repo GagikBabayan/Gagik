@@ -58,6 +58,33 @@ newSalary(dataEmployee);
 console.log(arrSalaryBonus);
 
 
+// 5. Ստանալ աշխատակիցների քանակը ըստ քաղաքների
+//    {
+//       newYork: 11,
+//       singapore: 4,
+//       sanFrancisco: 14,
+//       ...
+//    }
+
+let arrCity = {};
+
+let allCity = function (data) {
+  for (let i = 0; i < data.length; i++) {
+    arrCity[data[i].contact[0]] = 0;
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    if (arrCity[data[i].contact[0]] != undefined) {
+      arrCity[data[i].contact[0]]++;
+    }
+  }
+};
+
+allCity(dataEmployee);
+console.log(arrCity);
+
+
+
 // 6. Աշխատանքից ազատել աշխատակցին։
 //   a) Տպել "Սպասեք" տեքստը և 3 վայրկյան սպասել։ ( setTimeout() )
 //   b) Տպել զանգված բոլոր աշխատակիցների անուններով։
