@@ -33,7 +33,7 @@ function readOnly() {
 function loseInport() {
   text.style.color = "red";
   text.innerHTML = "You loss";
-  alert(random);
+  console.log(random);
   readOnly();
 }
 
@@ -72,7 +72,7 @@ let check = () => {
     let check;
 
     //We check that the stored value is greater or less than our imported number
-    if (num < random) {
+    if (num1 < random) {
       check = `${num1} < mindedNum`;
     } else {
       check = `${num1} > mindedNum`;
@@ -119,3 +119,4 @@ function calcScore() {
 document.getElementById("again").onclick = function () {
   document.location.reload(true);
 };
+
