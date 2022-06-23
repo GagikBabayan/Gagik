@@ -1,0 +1,64 @@
+div#title {
+  display: flex;
+  justify-content: space-around;
+  width: 70vw;
+  margin: 0;
+  padding: 0;
+  margin-top: 8px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+button#again {
+  width: 150px;
+  height: 125px;
+  background-color: aqua;
+  border: 5px solid;
+  font-size: 30px;
+}
+
+.style {
+  background-color: white;
+  border: 2px solid;
+  width: 45vw;
+  height: 4vh;
+  margin: 50px 130px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#highscore,
+#live {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scoreAnsdCount {
+  border: 4px solid;
+  width: 150px;
+  height: 125px;
+  background-color: aqua;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.game {
+  background-color: aquamarine;
+  border: 5px solid;
+  border-radius: 20px;
+}
+
+#text {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  color: rgb(60, 0, 255);
+}
