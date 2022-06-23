@@ -21,6 +21,7 @@ function readOnly() {
 function loseInport() {
   document.getElementById("text").style.color = "red";
   document.getElementById("text").innerHTML = "You loss";
+  alert(random);
   readOnly();
 }
 
