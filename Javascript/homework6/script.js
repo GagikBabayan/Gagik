@@ -1,12 +1,23 @@
 //generates a random number in the range 1 - 100
 let random = Math.floor(Math.random() * 100 + 1);
-alert(random);
 // We take the values of the ids
 let num = document.getElementById("input");
 let count = document.getElementById("countValue");
 let score = document.getElementById("scoreValue");
 let help = document.getElementById("help");
 let text = document.getElementById("text");
+
+//We take  the values of the sessionStorage
+let highScoore = sessionStorage.getItem("highScoore");
+
+//We check that the sessionStorage value has value or not?
+if (highScoore == null) {
+  sessionStorage.setItem("highScoore", String(0));
+  score.innerHTML = sessionStorage.getItem("highScoore");
+} else {
+  sessionStorage.setItem("highScoore", highScoore);
+  score.innerHTML = sessionStorage.getItem("highScoore");
+}
 
 //this function deletes the import location
 function deleteInput() {
