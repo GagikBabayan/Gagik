@@ -1,11 +1,12 @@
 //generates a random number in the range 1 - 100
 let random = Math.floor(Math.random() * 100 + 1);
-
+alert(random);
 // We take the values of the ids
 let num = document.getElementById("input");
 let count = document.getElementById("countValue");
 let score = document.getElementById("scoreValue");
 let help = document.getElementById("help");
+let text = document.getElementById("text");
 
 //this function deletes the import location
 function deleteInput() {
@@ -19,16 +20,16 @@ function readOnly() {
 
 //It's the function of this defeat, it changes the text, it turns red
 function loseInport() {
-  document.getElementById("text").style.color = "red";
-  document.getElementById("text").innerHTML = "You loss";
+  text.style.color = "red";
+  text.innerHTML = "You loss";
   alert(random);
   readOnly();
 }
 
 //It's the function of this victory, it changes the text, it turns green
 function winInport() {
-  document.getElementById("text").style.color = "green";
-  document.getElementById("text").innerHTML = "You win";
+  text.style.color = "green";
+  text.innerHTML = "You win";
   readOnly();
 }
 
@@ -94,7 +95,7 @@ function calcScore() {
 
   for (let i = 0; i < arrScore.length; i++) {
     if (i + 1 === countindex) {
-      document.getElementById("scoreValue").innerHTML = arrScore[i];
+      score.innerHTML = arrScore[i];
       arrScore[i] > Number(sessionStorage.getItem("highScoore"))
         ? sessionStorage.setItem("highScoore", `${arrScore[i]}`)
         : sessionStorage.getItem("highScoore");
