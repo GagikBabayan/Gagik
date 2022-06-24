@@ -79,14 +79,14 @@ let check = () => {
     }
 
     //We check our distance from the memorized number
-    if (sub <= 10 && sub > 5) {
-      help.innerHTML = "superlow  " + check;
-    } else if (sub <= 5) {
-      help.innerHTML = "low  " + check;
-    } else if (sub > 10 && sub <= 15) {
-      help.innerHTML = "superhigh  " + check;
-    } else if (sub > 15) {
-      help.innerHTML = "high  " + check;
+    if (sub > 10 && sub < 20) {
+      help.innerHTML = "near |  " + check;
+    } else if (sub <= 10) {
+      help.innerHTML = "supernear |  " + check;
+    } else if (sub >= 20 && sub < 30) {
+      help.innerHTML = "far |  " + check;
+    } else if (sub >= 30) {
+      help.innerHTML = "superfar|  " + check;
     }
   }
 };
@@ -119,4 +119,5 @@ function calcScore() {
 document.getElementById("again").onclick = function () {
   document.location.reload(true);
 };
+
 
