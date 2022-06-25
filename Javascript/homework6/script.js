@@ -57,7 +57,6 @@ function changeCount() {
 }
 
 let check = () => {
-  if (typeof num.value !== "string") {
     
     //num1 we give the entered number
     let num1 = Number(num.value);
@@ -91,8 +90,6 @@ let check = () => {
         help.innerHTML = "high  " + check;
       }
     }
-  } else {
-    alert("You Input not Integer Number.Please enter a number");
   }
 };
 
