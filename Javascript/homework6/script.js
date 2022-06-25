@@ -57,37 +57,42 @@ function changeCount() {
 }
 
 let check = () => {
-  //num1 we give the entered number
-  let num1 = Number(num.value);
+  if (typeof num.value !== "string") {
+    
+    //num1 we give the entered number
+    let num1 = Number(num.value);
 
-  //If the number we enter matches the number we remember, we win, and winInport and calcScore functions are called.
-  if (num1 === random) {
-    winInport();
-    calcScore();
+    //If the number we enter matches the number we remember, we win, and winInport and calcScore functions are called.
+    if (num1 === random) {
+      winInport();
+      calcScore();
+    } else if (num1 != 0) {
+      //We call the changeCount () function to change it to Count because we are wrong to answer
+      changeCount();
+
+      let sub = Math.abs(random - num1);
+      let check;
+
+      //We check that the stored value is greater or less than our imported number
+      if (num1 < random) {
+        check = `${num1} < mindedNum`;
+      } else {
+        check = `${num1} > mindedNum`;
+      }
+
+      //We check our distance from the memorized number
+      if (sub <= 10 && sub > 5) {
+        help.innerHTML = "superlow  " + check;
+      } else if (sub <= 5) {
+        help.innerHTML = "low  " + check;
+      } else if (sub > 10 && sub <= 15) {
+        help.innerHTML = "superhigh  " + check;
+      } else if (sub > 15) {
+        help.innerHTML = "high  " + check;
+      }
+    }
   } else {
-    //We call the changeCount () function to change it to Count because we are wrong to answer
-    changeCount();
-
-    let sub = Math.abs(random - num1);
-    let check;
-
-    //We check that the stored value is greater or less than our imported number
-    if (num1 < random) {
-      check = `${num1} < mindedNum`;
-    } else {
-      check = `${num1} > mindedNum`;
-    }
-
-    //We check our distance from the memorized number
-    if (sub > 10 && sub < 20) {
-      help.innerHTML = "near |  " + check;
-    } else if (sub <= 10) {
-      help.innerHTML = "supernear |  " + check;
-    } else if (sub >= 20 && sub < 30) {
-      help.innerHTML = "far |  " + check;
-    } else if (sub >= 30) {
-      help.innerHTML = "superfar|  " + check;
-    }
+    alert("You Input not Integer Number.Please enter a number");
   }
 };
 
@@ -119,5 +124,6 @@ function calcScore() {
 document.getElementById("again").onclick = function () {
   document.location.reload(true);
 };
+
 
 
