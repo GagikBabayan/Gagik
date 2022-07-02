@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  font-family: auto;
+  font-size: 25px;
+  text-align: center;
+}
+
+body {
+  background-color: beige;
+}
+
+.count {
+  border: 2px double;
+  width: 120px;
+  background-color: thistle;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+div#films {
+  display: grid;
+  grid-gap: 670px;
+  column-gap: 100px;
+  grid-template-columns: repeat(6, 150px);
+  grid-template-rows: repeat(2, 150px);
+}
+
+input#input {
+  width: 400px;
+  margin: 45px 200px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+button {
+  width: 110px;
+  margin-top: 20px;
+}
+
+.style {
+  box-shadow: 5px 10px #888888;
+  padding: 20px;
+  border: 2px solid;
+  width: 240px;
+  height: 800px;
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: repeat(1, 150px);
+  grid-template-rows: repeat(3, 150px);
+  justify-content: center;
+  place-items: center;
+  margin: 0 15%;
+}
+
+img {
+  width: 150%;
+  margin-top: -60px;
+}
+
+p.title {
+  font-size: 30px;
+  color: #8a1414;
+}
+
+p.description {
+  font-size: 15px !important;
+  margin-top: 80px;
+}
