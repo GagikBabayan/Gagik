@@ -11,7 +11,7 @@ import Jurassic from "./images/Jurassic_World.jpeg";
 import Divergent from "./images/Divergent.jpeg";
 import Pirates from "./images/Pirates.jpeg";
 
-const arr = [
+const moviesContainer = [
   {
     id: 1,
     name: "Spider-Man",
@@ -87,4 +87,4 @@ const arr = [
   },
 ];
 
-export default arr;
+export default moviesContainer;
