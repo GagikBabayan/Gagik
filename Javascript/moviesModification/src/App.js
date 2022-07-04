@@ -1,48 +1,42 @@
-import { filterArr, moviesFilter, Render } from "./renderMoves";
-import { useEffect, useState } from "react";
-import arr from "./arrayMovies";
+import { changedArr, RenderMovies } from "./renderMoves";
+import { useEffect, useState, useRef } from "react";
+import Button from "./Button/Button";
 import Modal from "./Modal/Modal";
+import moviesContainer from "./MoviesContainer";
 import Spider from "./images/download.jpeg";
+import moviesFilter from "./MoviesFilter";
 
 export function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(moviesContainer.length);
   const [name, setName] = useState("");
   const [newArr, setNewArr] = useState([]);
   const [show, setShow] = useState(false);
+  const [newFilmName, setNewFilmName] = useState("");
+  const [newFilmDesc, setNewFilmDesc] = useState("");
+  const refNewFilmName = useRef();
+  const refNewFilmDesc = useRef();
 
   useEffect(() => {
-    // reflesh array
     setNewArr(moviesFilter(name));
   }, [name]);
 
   useEffect(() => {
-    // reflesh  Count
     setCount(newArr.length);
   }, [newArr]);
 
-  // Check text is empty or not.
-  function checkText() {
+  function addMovie() {
+    setShow(false);
     const createdArr = {
-      //input  new movies
-      id: arr[arr.length - 1].id + 1,
-      name: `${document.querySelector(".filmName").value}`,
+      id: moviesContainer[moviesContainer.length - 1].id + 1,
+      name: `${newFilmName}`,
       image: Spider,
-      text: `${document.querySelector(".description").value}`,
+      text: `${newFilmDesc}`,
     };
-    console.log(document.querySelector(".filmName").value);
-    console.log(document.querySelector(".description").value);
-    if (
-      document.querySelector(".filmName").value &&
-      document.querySelector(".description").value
-    ) {
-      filterArr.push(createdArr); //push new movies in array
-      setNewArr(filterArr);
-      setCount(filterArr.length);
-      document.querySelector(".filmName").value = "";
-      document.querySelector(".description").value = "";
-    } else {
-      alert("You didn't write the movie's name or description");
-    }
+    changedArr.push(createdArr);
+    setNewArr(changedArr);
+    setCount(changedArr.length);
+    refNewFilmName.current.value = "";
+    refNewFilmDesc.current.value = "";
   }
 
   return (
@@ -57,44 +51,37 @@ export function App() {
             setTimeout(() => setName(event.target.value), 500);
           }}
         ></input>
-        <button onClick={() => setShow(true)}>add</button>
+        <Button onClick={() => setShow(true)}>add</Button>
         <Modal title="My Modal" onClose={() => setShow(false)} show={show}>
           <p>
-            Add filme
-            <button onClick={() => setShow(false)} className="buttonX">
-              X
-            </button>
+            Add film
+            <Button onClick={() => setShow(false)}>X</Button>
           </p>
           <div className="modalContent">
             <input
               type="text"
               placeholder="Film name"
+              ref={refNewFilmName}
               className="filmName style__"
+              onChange={(event) => setNewFilmName(event.target.value)}
             />
             <input
               type="text"
               placeholder="description"
+              ref={refNewFilmDesc}
               className="description style__"
+              onChange={(event) => setNewFilmDesc(event.target.value)}
             />
-            <button
-              className="modalAdd style__"
-              onClick={() => {
-                setShow(false);
-                {
-                  checkText();
-                }
-              }}
-            >
-              Add
-            </button>
+            <Button onClick={addMovie}>Add</Button>
           </div>
         </Modal>
       </div>
       <div id="films">
-        <Render newArr={newArr} setArr={setNewArr} setCount={setCount} />
+        <RenderMovies newArr={newArr} setArr={setNewArr} setCount={setCount} />
       </div>
     </div>
   );
 }
 
 export default App;
+
