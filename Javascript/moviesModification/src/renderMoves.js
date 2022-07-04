@@ -1,44 +1,27 @@
 import "./App";
 import "./App.css";
-import arr from "./arrayMovies";
+import moviesContainer from "./MoviesContainer";
+import { Button } from "./Button/Button";
 
-export let filterArr = arr;
+export let changedArr = moviesContainer;
 
-export function moviesFilter(name) {
-  const newArr =
-    name == ""
-      ? filterArr
-      : filterArr.filter(
-          (value) =>
-            value.name.toLowerCase().substring(0, name.length) ===
-            name.toLowerCase()
+export function RenderMovies({ newArr, setArr, setCount }) {
+    function removeMovie(id) {
+        changedArr = changedArr.filter((el) => el.id !== id);
+        setArr(changedArr);
+        setCount(changedArr.length);
+
+    }
+    return newArr.map((value) => {
+        return (
+            <div className="style" id={value.name} key={value.id.toString()}>
+                <p className="title">{value.name}</p>
+                <img src={value.image} />
+                <p className="description">
+                    {value.text} <br />
+                    <Button onClick={() => removeMovie(value.id)}>Delete</Button>
+                </p>
+            </div>
         );
-
-  return newArr;
-}
-
-export function Render({ newArr, setArr, setCount }) {
-  return newArr.map((value) => {
-    return (
-      <div className="style" id={value.name} key={value.id.toString()}>
-        <p className="title">{value.name}</p>
-        <img src={value.image} />
-        <p className="description">
-          {" "}
-          {value.text} <br />
-          <button
-            className="removebtn"
-            id={value.id}
-            onClick={() => {
-              filterArr = filterArr.filter((el) => el.id !== value.id);
-              setArr(filterArr);
-              setCount(filterArr.length);
-            }}
-          >
-            delete
-          </button>
-        </p>
-      </div>
-    );
-  });
+    });
 }
