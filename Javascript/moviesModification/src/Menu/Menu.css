@@ -33,3 +33,7 @@ body {
   font-size: 45px;
   font-family: sans-serif;
 }
+
+#notFound {
+  color: blue;
+}
