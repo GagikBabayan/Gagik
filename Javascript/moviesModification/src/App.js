@@ -27,7 +27,7 @@ export function App() {
   function addMovie() {
     setShow(false);
     const createdArr = {
-      id: moviesContainer[moviesContainer.length - 1].id + 1,
+      id: changedArr.length,
       name: `${newFilmName}`,
       image: Spider,
       text: `${newFilmDesc}`,
@@ -84,4 +84,3 @@ export function App() {
 }
 
 export default App;
-
