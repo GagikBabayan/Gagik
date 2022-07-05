@@ -1,15 +1,20 @@
-#descDiv {
-
+.descDiv {
+  display: grid;
+  grid-gap: 40px;
+  justify-items: center;
 }
 
-#descTitle {
-
+.descTitle {
+  font-size: 300%;
+  color: brown;
+  font-family: fantasy;
 }
 
-#descImg {
-
+img.descImg {
+  width: 25%;
 }
 
-#descParag {
-    
+p.descParag {
+  font-size: 150%;
 }
+
