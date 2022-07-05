@@ -14,3 +14,4 @@ function moviesFilter(name) {
 
 export default moviesFilter;
 
+
