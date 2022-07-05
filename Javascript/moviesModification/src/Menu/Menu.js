@@ -1,39 +1,28 @@
-* {
-  padding: 0;
-  box-sizing: border-box;
-  font-family: auto;
-  font-size: 25px;
-  text-align: center;
+import App from "../App";
+import { Routes, Route, Link } from "react-router-dom";
+import { Homepage } from "../Homepage";
+import { NotFoundPage } from "../NotFoundPage";
+import { FilmShow } from "../FilmShow";
+
+import "./Menu.css";
+
+function Menu() {
+  {
+    return (
+      <div>
+        <header>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+        </header>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/movies" element={<App />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/film/:id" element={<FilmShow />} />
+        </Routes>
+      </div>
+    );
+  }
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  height: 15%;
-  width: 100%;
-  background-color: darkslategrey;
-}
-
-a {
-  font-size: 150%;
-  color: white;
-  padding: 20px;
-}
-
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  /* background-image: url("./images/menu.jpeg"); */
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-}
-
-#Welcome {
-  font-size: 45px;
-  font-family: sans-serif;
-}
-
-#notFound {
-  color: blue;
-}
+export default Menu;
