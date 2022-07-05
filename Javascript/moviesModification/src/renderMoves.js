@@ -14,8 +14,6 @@ export function RenderMovies({ newArr, setArr, setCount }) {
       changedArr[i].id = changedArr[i].id - 1;
     }
 
-
-    console.log(changedArr);
     setArr(changedArr);
     setCount(changedArr.length);
   }
@@ -28,8 +26,9 @@ export function RenderMovies({ newArr, setArr, setCount }) {
           <p id="text"> {value.text}</p>
           <div class="ButtonsContainer">
             <Button onClick={() => removeMovie(value.id)}>Delete</Button>
-
-            <Link to={`/film/${value.id}`}>Goto</Link>
+            <Link to={`/film/${value.id}`}>
+              <button>Goto</button>
+            </Link>
           </div>
         </div>
       </div>
