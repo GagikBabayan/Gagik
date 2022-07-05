@@ -12,7 +12,7 @@
 
 div#films {
   display: grid;
-  grid-gap: 600px;
+  grid-gap: 660px;
   column-gap: 100px;
   grid-template-columns: repeat(6, 150px);
   grid-template-rows: repeat(2, 150px);
@@ -36,6 +36,7 @@ button {
 .ButtonsContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .style {
@@ -43,9 +44,9 @@ button {
   padding: 20px;
   border: 2px solid;
   width: 240px;
-  height: 740px;
+  height: 800px;
   display: grid;
-  grid-gap: 80px;
+  grid-gap: 100px;
   grid-template-columns: repeat(1, 150px);
   grid-template-rows: repeat(3, 150px);
   justify-content: center;
