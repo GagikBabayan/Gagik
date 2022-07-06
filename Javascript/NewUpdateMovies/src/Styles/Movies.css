@@ -1,0 +1,22 @@
+.moviesPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+
+.search {
+  margin: 10px 30px;
+  width: 400px;
+  height: 70px;
+  padding: 10px;
+  font-size: 30px;
+}
+.count{
+  display: inline;
+  font-size: 40px;
+  font-weight: 900;
+ 
+}
