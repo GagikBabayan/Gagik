@@ -1,4 +1,4 @@
-import menu from "./images/menu.jpeg";
+
 import "./Menu/Menu.css";
 
 const Homepage = () => {
