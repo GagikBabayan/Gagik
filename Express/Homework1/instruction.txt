@@ -1,0 +1,49 @@
+1.create folder Tom
+2.create index.js
+3.npm init -y
+4.npm install nodemon --save-dev  (// nodemon go to devDependencies)
+5.npm install express (//express go to dependencies)
+6. In package.json  in "scripts" added  "dev": "nodemon index.js" and "type": "module" 
+7. npm run dev
+8.go to index.js file and add import express from "express";
+9.const app = express();
+10.app.get("/", (req, res) => {
+    res.send("Hello World");
+   });
+11.app.listen(3000);
+12.create folder public;
+13.create index.html in public;
+14.
+	<!DOCTYPE html>
+	<html>
+ 	 <head>
+   	 <title>Test</title>
+  	</head>
+  	<body>
+  	  Hello World!
+ 	 </body>
+	</html>
+
+15.go to index.js and add import path from "path"
+16.delete   res.send("Hello World"); and write   res.sendFile(path.resolve("public/index.html"));
+
+17. 	app.get("/hello", (req, res) => {
+  	 res.send({
+  	  name: "Poxos",
+  	 });
+	});
+
+18.	app.use((req, res, next) => {
+  	 console.log("This is use");
+  	  next();
+	});
+
+19.app.use(express.static("public"));
+
+20.go to public folder and create style.css
+
+21.go to style.css and add  body {color:red}
+
+22.go to index.html and add in head    <link rel="stylesheet" href="style.css" />
+
+23.go to index.js and delete   res.sendFile(path.resolve("public/index.html")); and write req.redirect(./index.html
