@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Joe",
+    "todos": [
+      { "id": 0.44406045479366574, "text": "Learn JS", "isCompleted": false },
+      { "id": 0.07092180254282199, "text": "Learn CSS", "isCompleted": false }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Elina",
+    "todos": [
+      { "id": 0.8520083099558275, "text": "Learn JS", "isCompleted": false },
+      { "id": 0.16395734332700562, "text": "Learn CSS", "isCompleted": false }
+    ]
+  },
+  {
+    "id": 0.9171110904741906,
+    "name": "gaga",
+    "todos": [
+      { "id": 0.7648576426632137, "text": "agfasfa", "isCompleted": false },
+      { "id": 0.7648576426632137, "text": "agfasfa", "isCompleted": false }
+    ]
+  },
+  {
+    "id": 0.9171110904741906,
+    "name": "gaga",
+    "todos": [
+      { "id": 0.7648576426632137, "text": "agfasfa", "isCompleted": false },
+      { "id": 0.7648576426632137, "text": "agfasfa", "isCompleted": false }
+    ]
+  }
+]
