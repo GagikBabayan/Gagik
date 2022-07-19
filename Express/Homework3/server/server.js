@@ -58,7 +58,7 @@ app.post("/ToDo/:user", async (req, res) => {
     complete: false,
   });
 
-  await addObj.save(() => { });
+  await addObj.save(() => {});
 
   let newBase = await Datas.find({ userId: req.body.userId });
   res.send(newBase);

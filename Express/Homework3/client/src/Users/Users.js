@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export function Users() {
-  const URL = "http://localhost:3001";
+  const URL = process.env.MY_URL;
+  console.log(URL);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     fetch(`${URL}`)
@@ -12,6 +13,7 @@ export function Users() {
 
   return (
     <div className="usersList">
+      <h1>Users</h1>
       <ol>
         {users.map((user) => (
           <li key={user.userId}>

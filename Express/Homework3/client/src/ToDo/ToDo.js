@@ -10,7 +10,7 @@ function ToDo() {
 
   useEffect(() => {
     fetch(`${URL}/ToDo/${id}`)
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then(setTodos);
   }, []);
 
@@ -37,7 +37,7 @@ function ToDo() {
     setInputValue("");
   };
 
-  const handle = (taskId) => {
+  const update = (taskId) => {
     fetch(`${URL}/ToDo/${taskId}`, {
       method: "PUT",
       body: JSON.stringify({ userId: id }),
@@ -45,18 +45,18 @@ function ToDo() {
         "Content-Type": "application/json; charset=UTF-8",
       },
     })
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then(setTodos);
   };
 
   const removeToDo = () => {
     fetch(`${URL}/ToDo/${id}`, { method: "delete" })
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then(setTodos);
   };
 
   return (
-    <div className="ToDo">
+    <div>
       <h1>Todos</h1>
       <div>
         <input onChange={getInputValue} value={inputValue} />
@@ -67,7 +67,7 @@ function ToDo() {
           <li key={todo.id}>
             <input
               type="checkbox"
-              onChange={() => handle(todo.id)}
+              onChange={() => update(todo.id)}
               className="checkBox"
               checked={todo.complete}
             />
